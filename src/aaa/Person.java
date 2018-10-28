@@ -6,5 +6,8 @@ public class Person {
 		System.out.println("hello world !");
 		return null;
 	}
-
+	
+	public static void saying(){
+		System.out.println("I'm saying...");
+	}
 }
