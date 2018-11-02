@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>javaweb</display-name>
+  
+  <!-- 配置当前web应用的初始化参数 -->
+  <context-param>
+  	<param-name>driver</param-name>
+  	<param-value>com.mysql.jdbc.driver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>driverurl</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/wang</param-value>
+  </context-param>
+  
 	<!-- 配置一个servlet -->
 	<servlet>
 		<servlet-name>HelloServlet</servlet-name>
 		<servlet-class>aaa.HelloServlet</servlet-class>
+		
+		<init-param>
+			<param-name>user</param-name>
+			<param-value>scott</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>123456</param-value>
+		</init-param>
+		
+		
 		<!-- 可以指定servlet被创建的时机：负数：第一次请求时创建；正数：加载时就被创建，数值越小越早被创建 -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HelloServlet</servlet-name>
 		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>loginservlet</servlet-name>
+		<servlet-class>aaa.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginservlet</servlet-name>
+		<url-pattern>/loginservlet</url-pattern>
 	</servlet-mapping>
 </web-app>
